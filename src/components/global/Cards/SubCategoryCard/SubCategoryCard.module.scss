@@ -1,0 +1,115 @@
+/** @format */
+
+@import "@/styles/helpers/_variables.scss";
+
+.subCategoryCard {
+  width: 230px;
+  display: block;
+  margin-bottom: 50px;
+  border-radius: 15px;
+  height: 357px !important;
+  transition: all 0.3s ease-out;
+  overflow: hidden;
+  border: 2px solid transparent;
+  .imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 180px;
+    border-radius: 15px 15px 0 0;
+    background-color: #fff;
+  }
+
+  .textContainer {
+    height: 190px;
+    padding: 15px 20px;
+    background-color: $darkBlueTwo;
+    border-radius: 0 0 15px 15px;
+    border: 1px solid #344156;
+    box-sizing: border-box;
+    transition: all 0.3s linear;
+    >h2 {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 30px;
+      color: #FFFFFF;
+      margin-bottom: 0;
+    }
+    > p {
+      height: 80px;
+      margin-bottom: 15px;
+      width: 190px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+      display: -webkit-box;
+      // -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    .viewsContainer {
+      display: flex;
+      img {
+      }
+      p {
+        margin-left: 10px;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 16px;
+        span {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+
+  &:hover {
+    border: 2px solid $neonGreen;
+    .textContainer {
+      // border: none;
+    }
+
+    @media (max-width: 375px) {
+      border: 1px solid $neonGreen;
+    }
+  }
+
+  @media (max-width: 375px) {
+    margin-bottom: 20px;
+    height: 250px !important;
+    border-radius: 10px;
+
+    .imageContainer {
+      height: 150px !important;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .textContainer {
+      height: 100px;
+      padding: 14px;
+      border-radius: 0 0 10px 10px;
+
+      > p {
+        height: 49px;
+        margin-bottom: 10px;
+        font-weight: 400;
+        font-size: 11.1625px;
+        line-height: 16px;
+      }
+
+      .viewsContainer {
+        p {
+          margin-left: 8px;
+          font-weight: 400;
+          font-size: 8.37184px;
+          line-height: 11px;
+        }
+      }
+    }
+  }
+}
