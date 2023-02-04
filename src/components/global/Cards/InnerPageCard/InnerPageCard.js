@@ -28,6 +28,8 @@ const InnerPageCard = ({ innerPage }) => {
           alt="resource image"
           fill
           style={{ objectFit: "contain", objectPosition: "center" }}
+          blurDataURL={innerPage.image}
+          placeholder="blur"
         />
       </header>
       <main>
