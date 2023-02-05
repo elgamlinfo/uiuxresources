@@ -7,7 +7,7 @@ import UiUxResourcesServices from "@/services/uiUxResources.services";
 import UiUxResources from "@/components/layouts/UiUxResources";
 import FirstContentSection from "@/components/uiuxresourses/Content/FirstContentSection";
 import Categories from "@/components/uiuxresourses/Categories/Categories";
-import SecondContentSection from "@/components/uiuxresourses/Content/SecondContentSection";
+import WorkTogetherSection from "@/components/resources/WorkTogetherSection/WorkTogetherSection";
 
 function Slug({ data }) {
   return (
@@ -22,7 +22,8 @@ function Slug({ data }) {
               image={data?.headerContent?.image}
             />
             <Categories categories={data?.categories || []} />
-            <SecondContentSection
+
+            <WorkTogetherSection
               title={data?.footerContent?.title}
               description={data?.footerContent?.description}
             />

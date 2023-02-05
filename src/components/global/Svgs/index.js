@@ -19,4 +19,6 @@ export { default as Ui365DesignIcon } from "./365UiDesign.svg";
 export { default as EToyAppIcon } from "./EToyApp.svg";
 export { default as ScanSmileIcon } from "./ScanSmile.svg";
 export { default as ExitButtonWhiteIcon } from "./ExitButtonWhite.svg";
-export { default as StarIcon } from "./Star.svg";
+export { default as LovelyIcon } from "./Lovely.svg";
+
+export { default as TestIcon } from "./TestIcon.svg";

@@ -10,19 +10,21 @@ import {
   GreenHeartIcon,
   EyeIcon,
   LinkIcon,
-  StarIcon
+  LovelyIcon,
 } from "@/components/global/Svgs";
 
 const InnerPageCard = ({ innerPage }) => {
   return (
     <div className={styles["innerPageCard"]}>
-      <header style={{background: innerPage?.color}}>
+      <header style={{ background: innerPage?.color }}>
         <span className={styles["Suggestions"]}>
-          <StarIcon />
+          <LovelyIcon />
         </span>
-        {innerPage?.link&&<a href={innerPage?.link} target="_blank" className={styles["link"]}>
-          <LinkIcon />
-        </a>}
+        {innerPage?.link && (
+          <a href={innerPage?.link} target="_blank" className={styles["link"]}>
+            <LinkIcon />
+          </a>
+        )}
         <Image
           src={innerPage.image}
           alt="resource image"
@@ -45,7 +47,7 @@ const InnerPageCard = ({ innerPage }) => {
           <p>{innerPage.description}</p>
         </div>
         <div className={styles["tag_container"]}>
-            <p className={styles["tag"]}>#freemium</p>
+          <p className={styles["tag"]}>#freemium</p>
         </div>
       </main>
       <footer>
@@ -58,10 +60,12 @@ const InnerPageCard = ({ innerPage }) => {
             {innerPage.ip ? <GreenHeartIcon /> : <HeartIcon />}
             <p>{innerPage.likes}</p>
           </li>
-          {innerPage.file&& <li>
-            <DownloadIcon />
-            <p>Download</p>
-          </li>}
+          {
+            <li className={innerPage.file ? styles["disabled"] : ""}>
+              <DownloadIcon />
+              <p className="d-none d-md-block">Download</p>
+            </li>
+          }
         </ul>
       </footer>
     </div>

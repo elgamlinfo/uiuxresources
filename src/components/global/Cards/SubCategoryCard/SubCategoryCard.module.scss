@@ -3,9 +3,8 @@
 @import "@/styles/helpers/_variables.scss";
 
 .subCategoryCard {
-  width: 230px;
+  width: 100%;
   display: block;
-  margin-bottom: 50px;
   border-radius: 15px;
   height: 357px !important;
   transition: all 0.3s ease-out;
@@ -29,11 +28,11 @@
     border: 1px solid #344156;
     box-sizing: border-box;
     transition: all 0.3s linear;
-    >h2 {
+    > h2 {
       font-weight: 700;
       font-size: 16px;
       line-height: 30px;
-      color: #FFFFFF;
+      color: #ffffff;
       margin-bottom: 0;
     }
     > p {
@@ -80,7 +79,6 @@
   }
 
   @media (max-width: 375px) {
-    margin-bottom: 20px;
     height: 250px !important;
     border-radius: 10px;
 
