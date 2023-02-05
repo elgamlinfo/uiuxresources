@@ -3,7 +3,7 @@
 import { Container, Row } from "reactstrap";
 import CategoryCard from "@/components/global/Cards/CategoryCard/CategoryCard";
 
-import styles from "./categories.module.scss";
+import styles from "./Categories.module.scss";
 
 const Categories = ({ categories }) => {
   return (
