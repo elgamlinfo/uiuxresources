@@ -23,7 +23,6 @@ const SubSlug = ({ data }) => {
               subCategoryName={data?.name}
               subCategoryDescription={data?.description}
             />
-
             <Resources innerPages={data?.InnerPage || []} />
           </>
         )}

@@ -4,7 +4,15 @@
 
 .categories {
   padding: 100px 0;
-
+  .title { 
+    color: #808ea5;
+     a { 
+      color: #fff;
+     }
+  }
+  .tab_left {
+    width: 30% !important;
+  }
   @media (max-width: 375px) {
     padding: 0 8px 40px 8px;
   }
@@ -15,3 +23,4 @@
     }
   }
 }
+

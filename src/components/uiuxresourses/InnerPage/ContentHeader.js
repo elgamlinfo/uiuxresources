@@ -24,8 +24,8 @@ const ContentHeader = ({
       <Container className="p-0">
         <div className={styles["title"]}>
           <h2>
-            <Link href={'/'}><span><u>Home</u>{" "} . {" "}</span></Link>
-            <Link href={'/resources'}><span><u>{categoryName && categoryName}</u>{" "} . {" "}</span></Link>
+            <Link href={'/resources'}><span><u>Home</u>{" "} . {" "}</span></Link>
+            <Link href={`/resources/${categoryName}`}><span><u>{categoryName && categoryName}</u>{" "} . {" "}</span></Link>
             {subCategoryName && subCategoryName}
           </h2>
         </div>

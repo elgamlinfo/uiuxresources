@@ -17,9 +17,9 @@ const InnerPageCard = ({ innerPage }) => {
   return (
     <div className={styles["innerPageCard"]}>
       <header style={{ background: innerPage?.color }}>
-        <span className={styles["Suggestions"]}>
+        {innerPage?.tag?.star&&<span className={styles["Suggestions"]}>
           <LovelyIcon />
-        </span>
+        </span>}
         {innerPage?.link && (
           <a href={innerPage?.link} target="_blank" className={styles["link"]}>
             <LinkIcon />
@@ -47,7 +47,7 @@ const InnerPageCard = ({ innerPage }) => {
           <p>{innerPage.description}</p>
         </div>
         <div className={styles["tag_container"]}>
-          <p className={styles["tag"]}>#freemium</p>
+        {innerPage?.tag&&<p className={styles["tag"]}>#{innerPage?.tag?.title}</p>}
         </div>
       </main>
       <footer>

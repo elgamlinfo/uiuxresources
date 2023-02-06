@@ -14,11 +14,11 @@ const TabTitle = ({ text, index, setActiveTab, activeTab }) => {
 
   return (
     <li
-      className={`${index === activeTab ? styles["active"] : ""}`}
-      onClick={() => handleClick(index)}
+      className={`${text === activeTab ? styles["active"] : ""}`}
+      onClick={() => handleClick(text)}
     >
       {text}
-      {index === activeTab ? <RightArrowDarkIcon /> : <RightArrowLightIcon />}
+      {text === activeTab ? <RightArrowDarkIcon /> : <RightArrowLightIcon />}
     </li>
   );
 };

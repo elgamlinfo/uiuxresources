@@ -10,28 +10,37 @@ import SubCategoryCard from "@/components/global/Cards/SubCategoryCard/SubCatego
 import InnerPageCard from "@/components/global/Cards/InnerPageCard/InnerPageCard";
 
 import styles from "./Categories.module.scss";
+import Link from "next/link";
 
-const Categories = ({ categories }) => {
-  const [activeCategory, setActiveCategory] = useState(0);
-  const [categoryDisplayed, setCategoryDisplayed] = useState(categories[0]);
+const Categories = ({ categories, params  }) => {
+  const [activeCategory, setActiveCategory] = useState(params);
+  const [categoryDisplayed, setCategoryDisplayed] = useState(categories.filter(category => category.name == params)[0]);
 
   const categoryTitles = categories.map((category) => category.name);
 
   useEffect(() => {
-    setCategoryDisplayed(categories[activeCategory]);
+    setCategoryDisplayed(cat => categories.filter(category => category.name == activeCategory)[0]);
+    console.log(categories.filter(category => category.name == activeCategory));
   }, [activeCategory]);
 
   return (
     <div className={styles["categories"]}>
       <Container>
+      <div className={styles["title"]}>
+          <h2>
+            <Link href={'/resources'}><span><u>Home</u>{" "} . {" "}</span></Link>
+            {params}
+          </h2>
+        </div>
+
         <Row className="gx-1 justify-content-between">
-          <Col md={3} className="p-0 d-none d-md-block">
+          <div  className={`${styles["tab_left"]} tab_left p-0 d-none d-md-block`}>
             <TabHeader
               tabHeaderData={categoryTitles}
               setActiveTab={setActiveCategory}
               activeTab={activeCategory}
             />
-          </Col>
+          </div>
 
           <Col xs={12} className="d-md-none">
             <TabHeaderForMobile
@@ -40,10 +49,10 @@ const Categories = ({ categories }) => {
               activeTab={activeCategory}
             />
           </Col>
-
+          {console.log(categoryDisplayed)}
           {categoryDisplayed?.subCategoeries?.length === 0 ? (
             <>
-              <Col xs={12} md={9}>
+              <Col xs={12} md={8}>
                 <Row className={styles["leftSpacingForInnerCards"]}>
                   <Masonry
                     breakpointCols={{ default: 3, 768: 2 }}
@@ -78,3 +87,4 @@ const Categories = ({ categories }) => {
 };
 
 export default Categories;
+

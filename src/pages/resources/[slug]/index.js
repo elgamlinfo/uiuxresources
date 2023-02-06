@@ -9,7 +9,7 @@ import FirstContentSection from "@/components/uiuxresourses/Content/FirstContent
 import Categories from "@/components/uiuxresourses/Categories/Categories";
 import WorkTogetherSection from "@/components/resources/WorkTogetherSection/WorkTogetherSection";
 
-function Slug({ data }) {
+function Slug({ data, params}) {
   return (
     <>
       <SEOHead title="Resources" description="description of the page " />
@@ -19,14 +19,10 @@ function Slug({ data }) {
             <FirstContentSection
               title={data?.headerContent?.title}
               description={data?.headerContent?.description}
-              image={data?.headerContent?.image}
+              image={data?.headerContent?.vector}
+              images= {data?.headerContent?.Images}
             />
-            <Categories categories={data?.categories || []} />
-
-            <WorkTogetherSection
-              title={data?.footerContent?.title}
-              description={data?.footerContent?.description}
-            />
+            <Categories categories={data?.categories || []} params={params}/>
           </>
         )}
       </UiUxResources>
@@ -34,13 +30,14 @@ function Slug({ data }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
   try {
     const uiUxReq = await UiUxResourcesServices.getUiUxResources();
     const [{ data }] = await Promise.all([uiUxReq]);
     return {
       props: {
         data: data?.data,
+        params: context?.params?.slug
       },
     };
   } catch (error) {

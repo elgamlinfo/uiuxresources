@@ -22,7 +22,7 @@ const LatestResources = ({ resources }) => {
             <InnerPageCard innerPage={innerPage} key={innerPage?.id || i} />
           ))}
         </Masonry>
-        <Link className={styles["link"]} href="/resources">
+        <Link className={styles["link"]} href="/resources/User Interface (UI)">
           View Additional Resources
         </Link>
       </Container>

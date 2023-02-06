@@ -307,7 +307,7 @@ ul {
 
 /* Remove these to get rid of the spinner */
 #nprogress .spinner {
-  display: block;
+  display: none !important;
   position: fixed;
   z-index: 9999999 !important;
   top: 20px;

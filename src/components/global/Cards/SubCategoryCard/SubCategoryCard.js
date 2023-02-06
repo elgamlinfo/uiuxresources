@@ -17,12 +17,7 @@ const SubCategoryCard = ({ subCategory }) => {
         className={styles["subCategoryCard"]}
       >
         <div className={styles["imageContainer"]}>
-          <Image
-            src={subCategory.image}
-            alt="category image"
-            width={100}
-            height="100"
-          />
+          <div dangerouslySetInnerHTML={{__html: subCategory.icon}}/> 
         </div>
         <div className={styles["textContainer"]}>
           <h2>{subCategory.name}</h2>

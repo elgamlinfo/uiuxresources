@@ -10,16 +10,9 @@ import WorkTogetherSection from "@/components/resources/WorkTogetherSection/Work
 
 import UiUxResourcesServices from "@/services/uiUxResources.services";
 
-function Resources({ data }) {
-  const categories = [
-    { icon: "", name: "User interface" },
-    { icon: "", name: "User interfacse" },
-    { icon: "", name: "User interface" },
-    { icon: "", name: "User interface" },
-    { icon: "", name: "User interface" },
-    { icon: "", name: "User interface" },
-    { icon: "", name: "User interface" },
-  ];
+function Resources({ pages, categories }) {
+  console.log(pages);
+
 
   return (
     <>
@@ -27,26 +20,24 @@ function Resources({ data }) {
       <UiUxResources>
         <FirstContentSection />
         <Categories categories={categories ? categories : []} />
-        <LatestResources resources={data?.InnerPage ? data?.InnerPage : []} />
-        <WorkTogetherSection
-          title="Work On!"
-          description="Together, let's build a fantastic resources website! and to rank among the largest websites in the world."
-        />
+        <LatestResources resources={pages||[]} />
+       
       </UiUxResources>
     </>
   );
 }
 
+
+
 export async function getServerSideProps() {
   try {
-    const subCategoryReq = await UiUxResourcesServices.getSubCategoryByName(
-      "icons"
-    );
-    const [{ data }] = await Promise.all([subCategoryReq]);
-
+    const uiUxReq = await UiUxResourcesServices.getUiUxResourcesHomePage();
+    const [{ data }] = await Promise.all([uiUxReq]);
+    console.log(data);
     return {
       props: {
-        data: data?.data,
+        pages: data?.data?.Pages,
+        categories: data?.data?.Categories,
       },
     };
   } catch (error) {
@@ -58,4 +49,5 @@ export async function getServerSideProps() {
     };
   }
 }
+
 export default Resources;

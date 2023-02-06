@@ -38,7 +38,7 @@
     > p {
       height: 80px;
       margin-bottom: 15px;
-      width: 190px;
+      width: 100%;
       color: #fff;
       font-size: 14px;
       font-weight: 400;
@@ -69,10 +69,17 @@
 
   &:hover {
     border: 2px solid $neonGreen;
-    .textContainer {
-      // border: none;
+    .imageContainer {
+      div {
+        svg {
+          path {
+            transition: all 0.3s ease-out;
+            fill: $neonGreen;
+            // stroke: $neonGreen;
+          }
+        }
+      }
     }
-
     @media (max-width: 375px) {
       border: 1px solid $neonGreen;
     }
