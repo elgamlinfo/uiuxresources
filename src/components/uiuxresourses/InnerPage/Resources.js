@@ -12,16 +12,6 @@ const Resources = ({ innerPages, tags }) => {
   const [innerPageNum, setInnerPageNum] = useState(8);
   const [filter, setFilter] = useState([])
   const [data, setData] = useState([])
-  const observer = useRef()
-  const [hasMore, setHasMore] = useState(true) 
-
-  if (typeof window !== "undefined") {
-    window.onscroll = () => {
-     if(document.documentElement.scrollTop+200 == document.querySelector('.loadbtn').offsetTop) { 
-        setInnerPageNum((prevInnerNum) => prevInnerNum + 8);
-     }
-    } 
-  }
 
   const handleLoadMore = () => {
     setInnerPageNum((prevInnerNum) => prevInnerNum + 8);

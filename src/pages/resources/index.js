@@ -1,13 +1,10 @@
 /** @format */
-
 import SEOHead from "@/components/global/SEOHead/SEOHead";
-
 import UiUxResources from "@/components/layouts/UiUxResources";
-import FirstContentSection from "@/components/resources/FirstContentSection/FirstContentSection";
 import Categories from "@/components/resources/Categories/Categories";
 import LatestResources from "@/components/resources/LatestResources/LatestResources";
-
 import UiUxResourcesServices from "@/services/uiUxResources.services";
+import FirstContentSectionHome from "@/components/resources/FirstContentSectionHome/FirstContentSectionHome";
 
 function Resources({
   pages,
@@ -28,10 +25,10 @@ function Resources({
         ogDescription={seoData?.facebookDescriptionEn}
       />
       <UiUxResources footerContent={footerContent}>
-        <FirstContentSection
+        <FirstContentSectionHome
           title={headerContent?.title}
           description={headerContent?.description}
-          vector={headerContent?.vector}
+          vector={headerContent?.image}
         />
         <Categories categories={categories ? categories : []} />
         <LatestResources resources={pages || []} />
@@ -41,19 +38,16 @@ function Resources({
 }
 
 export async function getServerSideProps({ req, res }) {
-  res.setHeader(
-    'Cache-Control',
-    'public, s-maxage=10, stale-while-revalidate=59'
-  )
   try {
-    const uiUxReq = await UiUxResourcesServices.getUiUxResources();
+    const uiUxReq = await UiUxResourcesServices.getUiUxResourcesHomePage();
     const [{ data }] = await Promise.all([uiUxReq]);
+    console.log(data);
     return {
       props: {
-        pages: data?.data?.Pages,
-        categories: data?.data?.categories,
+        // pages: data?.data?.Pages,
+        categories: data?.data?.Categories,
         headerContent: data?.data?.headerContent,
-        footerContent: data?.data?.footerContent,
+        // footerContent: data?.data?.footerContent,
         seoData: data?.data?.seo,
       },
     };
