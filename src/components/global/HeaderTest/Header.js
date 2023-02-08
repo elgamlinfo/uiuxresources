@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import useReactSimpleMatchMedia from "react-simple-matchmedia";
 import { Col, Container, Row } from "reactstrap";
 
 import {
@@ -32,7 +31,6 @@ const NavLink = ({ url, text, whiteActive }) => {
 };
 
 const HeaderTest = () => {
-  const matched = useReactSimpleMatchMedia("(max-width: 375px)");
   const [whiteActive, setWhiteActive] = useState(true);
 
   function sideToggle() {
@@ -53,11 +51,7 @@ const HeaderTest = () => {
       }
 
       if (window.scrollY > 0) {
-        if (matched) {
-          setWhiteActive(true);
-        } else {
-          setWhiteActive(false);
-        }
+        
       } else {
         setWhiteActive(true);
       }
