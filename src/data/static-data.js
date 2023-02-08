@@ -13,37 +13,65 @@ export const globalMeta = {
   siteLogo: "",
   email: "",
   description: "",
+  keywords: [],
 };
 
-export const mainMenuLinks = [
+export const navLinks = [
+  // {
+  //   url: "/",
+  //   text: "Home",
+  // },
   {
-    text: "Home",
-    url: "/",
+    url: "/resources",
+    text: "Resources",
   },
+  // {
+  //   url: "/ux-process",
+  //   text: "UX Process",
+  // },
+  // {
+  //   url: "/ui-book",
+  //   text: "UI Book",
+  // },
+  // {
+  //   url: "/academy",
+  //   text: "Academy",
+  // },
+  // {
+  //   url: "/articles",
+  //   text: "Articles",
+  // },
+];
+
+export const mainMenuLinks = [
+  // {
+  //   text: "Home",
+  //   url: "/",
+  // },
   {
     text: "Resources",
     url: "/resources",
   },
-  {
-    text: "UX Process",
-    url: "/ux-process",
-  },
-  {
-    text: "UI Book",
-    url: "/ui-book",
-  },
-  {
-    text: "Academy",
-    url: "/academy",
-  },
-  {
-    text: "Articles",
-    url: "/articles",
-  },
-  {
-    text: "Contact Us",
-    url: "/contact-us",
-  },
+  // {
+  //   text: "UX Process",
+  //   url: "/ux-process",
+  // },
+  // {
+  //   text: "UI Book",
+  //   url: "/ui-book",
+  // },
+  // {
+  //   text: "Academy",
+  //   url: "/academy",
+  // },
+  // {
+  //   text: "Articles",
+  //   url: "/articles",
+  // },
+  // {
+  //   text: "Contact Us",
+  //   url: "/contact-us",
+  // },
 ];
 
 export const otherLinks = [

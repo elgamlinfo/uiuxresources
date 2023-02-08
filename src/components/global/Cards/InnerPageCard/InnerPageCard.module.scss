@@ -148,8 +148,8 @@
         display: flex;
         flex-direction: row;
         align-items: flex-start;
-        padding: 5px 10px;
-        font-size: 10px;
+        padding: 10px 15px;
+        font-size: 12px;
         line-height: 10px;
         font-weight: 700;
         margin-bottom: 0;
@@ -178,6 +178,14 @@
         align-items: center;
         transition: all 0.3s linear;
         cursor: pointer;
+        a {
+          display: flex;
+          justify-content: left;
+          align-items: center;
+          transition: all 0.3s linear;
+          cursor: pointer;
+          color: #fff;
+        }
         // width: calc(100%/2.8);
         svg {
           transition: all 0.3s linear;
@@ -196,6 +204,9 @@
         }
         &:hover {
           color: $neonGreen;
+          a {
+            color: $neonGreen;
+          }
           svg {
             stroke: $neonGreen !important;
 
@@ -208,6 +219,9 @@
         &.disabled {
           cursor: not-allowed;
           color: $disabledColor;
+          a {
+            cursor: not-allowed;
+          }
           svg {
             stroke: $disabledColor !important;
 
@@ -250,7 +264,7 @@
     }
 
     main {
-      padding: 15px;
+      padding: 20px;
       border: 0.5px solid #344156;
 
       > ul {
@@ -261,9 +275,9 @@
           border-radius: 30px;
           margin-right: 6px;
           a {
-            font-weight: 400;
-            font-size: 12px;
-            line-height: 6px;
+            font-weight: 600;
+            font-size: 13px;
+            line-height: 13px;
           }
         }
       }
@@ -271,29 +285,29 @@
       .text {
         overflow: hidden;
         h4 {
-          margin-bottom: 5px;
+          margin-bottom: 10px;
           color: #fff;
           font-weight: 700;
-          font-size: 18px;
-          line-height: 22px;
+          font-size: 24px;
+          line-height: 24px;
         }
 
         p {
           font-weight: 400;
-          font-size: 14px;
-          line-height: 20px;
+          font-size: 16px;
+          line-height: 22px;
         }
       }
 
       .tag_container {
-        margin-top: 10px;
+        margin-top: 20px;
         .tag {
           width: fit-content;
           border-radius: 30px;
           padding: 10px 15px;
-          font-weight: 400;
-          font-size: 12px;
-          line-height: 6px;
+          font-weight: 600;
+          font-size: 13px;
+          line-height: 13px;
           margin-bottom: 0;
         }
       }
@@ -302,8 +316,8 @@
     footer {
       display: flex;
       align-items: center;
-      height: 35px !important;
-      padding: 10px 15px;
+      // height: 35px !important;
+      padding: 15px 20px;
       border: 0.4px solid #344156;
       border-top: 0;
       border-radius: 0px 0px 9px 9px;

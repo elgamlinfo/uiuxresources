@@ -72,6 +72,9 @@
       left: -15%;
       transition: all 0.3s;
     }
+    &.disabled {
+      color: red !important;
+    }
     &.white__link {
       color: #fff;
     }

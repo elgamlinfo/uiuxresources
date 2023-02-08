@@ -1,18 +1,19 @@
 /** @format */
 
+import Image from "next/image";
 import { Container } from "reactstrap";
 import styles from "./FirstContentSection.module.scss";
 
-const FirstContentSection = () => {
+const FirstContentSection = ({ title, description, vector }) => {
   return (
-    <section className={styles["firstContentSection"]}>
+    <section
+      className={styles["firstContentSection"]}
+      style={{ backgroundImage: `url("${vector}")` }}
+    >
       <Container>
         <div className={styles["text"]}>
-          <h1>Find incredibly helpful design resources and tools.</h1>
-          <p>
-            Each week, more than 1000 design resources are added to a growing
-            library for the design community.
-          </p>
+          <h1>{title && title}</h1>
+          <p>{description && description}</p>
         </div>
       </Container>
     </section>

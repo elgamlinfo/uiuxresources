@@ -8,14 +8,15 @@ import Resources from "@/components/uiuxresourses/InnerPage/Resources";
 
 import UiUxResourcesServices from "@/services/uiUxResources.services";
 
-const SubSlug = ({ data }) => {
+const SubSlug = ({ data, tags }) => {
+ 
   return (
     <>
       <SEOHead
         title={`${data?.Category?.name} - ${data?.name}`}
         description="description of the page "
       />
-      <UiUxResources>
+      <UiUxResources footerContent={data?.footerContent}>
         {data && (
           <>
             <ContentHeader
@@ -23,7 +24,11 @@ const SubSlug = ({ data }) => {
               subCategoryName={data?.name}
               subCategoryDescription={data?.description}
             />
-            <Resources innerPages={data?.InnerPage || []} />
+
+            <Resources
+              innerPages={data?.InnerPage || []}
+              tags={tags ? tags : []}
+            />
           </>
         )}
       </UiUxResources>
@@ -37,11 +42,13 @@ export async function getServerSideProps(ctx) {
     const subCategoryReq = await UiUxResourcesServices.getSubCategoryByName(
       subSlug
     );
-    const [{ data }] = await Promise.all([subCategoryReq]);
+    const tagsReq = await UiUxResourcesServices.getResourcesTags();
+    const [{ data }, tagsRes] = await Promise.all([subCategoryReq, tagsReq]);
 
     return {
       props: {
         data: data?.data,
+        tags: tagsRes?.data?.data,
       },
     };
   } catch (error) {
@@ -49,6 +56,7 @@ export async function getServerSideProps(ctx) {
     return {
       props: {
         data: null,
+        tags: null,
       },
     };
   }

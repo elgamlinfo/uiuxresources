@@ -214,9 +214,9 @@ const SidebarTest = () => {
           <Col className="p-0">
             <Row className="align-items-center flex-nowrap gap-2 m-0">
               <Col lg={1} md={2} xs={4} className="">
-                <Link href="/">
+                <a href="https://www.layouti.com/" target="_blank">
                   <LayoutliLogoWhiteIcon className="sidebar-menu__logo" />{" "}
-                </Link>
+                </a>
               </Col>
               <Col lg={11} md={10} xs={8} className="side_header_title">
                 <h2 className={`footer_brand m-0 fs-md-3 fs-4`}>Layouti</h2>

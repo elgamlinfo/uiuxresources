@@ -55,3 +55,28 @@
     }
   }
 }
+
+.resourcesFilter {
+    display: flex;
+    padding: 20px;
+    margin-bottom: 25px;
+    background-color: $darkBlueTwo;
+    border-radius: 10px;
+     
+      label {
+        margin-left: 10px;
+        font-weight: 400;
+        font-size: 14px;
+        color: white;
+        cursor: pointer;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        border-radius: 5px;
+        transition: all 0.3s ease-in-out;
+        gap: 5px;
+        &:hover {
+          background: $mainColor;
+        }
+      }
+}

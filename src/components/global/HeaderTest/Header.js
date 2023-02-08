@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import useReactSimpleMatchMedia from "react-simple-matchmedia";
 import { Col, Container, Row } from "reactstrap";
 
@@ -12,12 +11,18 @@ import {
   MenuDarkIcon,
   MenuWhiteIcon,
 } from "../Svgs";
+import { useRouter } from "next/router";
+import { navLinks } from "@/data/static-data";
 
 const NavLink = ({ url, text, whiteActive }) => {
+  const router = useRouter();
+
   return (
     <li className={"nav_item"}>
       <Link
-        className={`${whiteActive ? "white__link" : ""} nav_item_link`}
+        className={`${whiteActive ? "white__link" : ""} nav_item_link ${
+          router.pathname === url ? "active" : ""
+        }`}
         href={url}
       >
         {text}
@@ -25,33 +30,6 @@ const NavLink = ({ url, text, whiteActive }) => {
     </li>
   );
 };
-
-const navLinks = [
-  {
-    url: "/",
-    text: "Home",
-  },
-  {
-    url: "/resources",
-    text: "Resources",
-  },
-  {
-    url: "/ux-process",
-    text: "UX Process",
-  },
-  {
-    url: "/ui-book",
-    text: "UI Book",
-  },
-  {
-    url: "/academy",
-    text: "Academy",
-  },
-  {
-    url: "/articles",
-    text: "Articles",
-  },
-];
 
 const HeaderTest = () => {
   const matched = useReactSimpleMatchMedia("(max-width: 375px)");
@@ -109,13 +87,13 @@ const HeaderTest = () => {
       <Container className=" h-100">
         <Row className="align-items-center justify-content-between h-100">
           <Col xs="2" className="header_logo p-0">
-            <Link href="/">
+            <a href="https://www.layouti.com/" target="_blank">
               {whiteActive ? (
                 <LayoutliLogoWhiteIcon />
               ) : (
                 <LayoutiLogoDarkIcon />
               )}
-            </Link>
+            </a>
           </Col>
           <Col xs={8} className="d-none d-lg-block ">
             <Row

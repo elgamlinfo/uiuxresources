@@ -9,20 +9,27 @@ import FirstContentSection from "@/components/uiuxresourses/Content/FirstContent
 import Categories from "@/components/uiuxresourses/Categories/Categories";
 import WorkTogetherSection from "@/components/resources/WorkTogetherSection/WorkTogetherSection";
 
-function Slug({ data, params}) {
+function Slug({ data, params, seoData }) {
   return (
     <>
-      <SEOHead title="Resources" description="description of the page " />
-      <UiUxResources>
+      <SEOHead
+        title={seoData?.titleEn}
+        description={seoData?.descriptionEn}
+        ogImgUrl={seoData?.facebookImage}
+        keywords={seoData?.keywordsEn}
+        ogTitle={seoData?.facebookTitleEn}
+        ogDescription={seoData?.facebookDescriptionEn}
+      />
+      <UiUxResources footerContent={data?.footerContent}>
         {data && (
           <>
             <FirstContentSection
               title={data?.headerContent?.title}
               description={data?.headerContent?.description}
               image={data?.headerContent?.vector}
-              images= {data?.headerContent?.Images}
+              images={data?.headerContent?.Images}
             />
-            <Categories categories={data?.categories || []} params={params}/>
+            <Categories categories={data?.categories || []} params={params} />
           </>
         )}
       </UiUxResources>
@@ -37,7 +44,8 @@ export async function getServerSideProps(context) {
     return {
       props: {
         data: data?.data,
-        params: context?.params?.slug
+        params: context?.params?.slug,
+        seoData: data?.data?.seo,
       },
     };
   } catch (error) {

@@ -20,5 +20,9 @@ export { default as EToyAppIcon } from "./EToyApp.svg";
 export { default as ScanSmileIcon } from "./ScanSmile.svg";
 export { default as ExitButtonWhiteIcon } from "./ExitButtonWhite.svg";
 export { default as LovelyIcon } from "./Lovely.svg";
+export { default as CloseIcon } from "./Close.svg";
+export { default as LinkForInputIcon } from "./LinkForInput.svg";
+export { default as SuccessIcon } from "./Success.svg";
+export { default as SuccessForMobileIcon } from "./SuccessForMobile.svg";
 
 export { default as TestIcon } from "./TestIcon.svg";

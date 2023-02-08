@@ -35,10 +35,16 @@
   .navbar_one {
     list-style: none;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     padding: 0;
     align-items: center;
     margin: 0;
+    li {
+      margin-right: 50px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
     .navs {
       white-space: nowrap;
       font-weight: 400;
@@ -67,9 +73,9 @@
       position: absolute;
       width: 0%;
       height: 2px;
-      top: 50%;
+      top: 80%;
       background-color: #3aaa35;
-      left: -15%;
+      left: 0;
       transition: all 0.3s;
     }
     &.white__link {
@@ -79,7 +85,7 @@
       color: #3aaa35 !important;
       text-decoration: none !important;
       &::before {
-        width: 125%;
+        width: 100%;
       }
     }
     &.active {
@@ -89,11 +95,11 @@
       &::before {
         content: "";
         position: absolute;
-        width: 150%;
+        width: 100%;
         height: 2px;
-        top: 50%;
+        top: 80%;
         background-color: #3aaa35;
-        left: -25%;
+        left: 0;
       }
     }
   }

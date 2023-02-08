@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import useReactSimpleMatchMedia from "react-simple-matchmedia";
+// import useReactSimpleMatchMedia from "react-simple-matchmedia";
 import { Col, Container, Row } from "reactstrap";
 import styles from "./Header.module.scss";
 
@@ -18,7 +18,7 @@ const NavLink = ({ url, text, whiteActive }) => {
     <li className={styles["nav_item"]}>
       <Link
         className={`${styles["nav_item_link"]} ${
-          whiteActive ? "white__link" : ""
+          whiteActive ? "white__link" : ""                          
         } nav_item_link`}
         href={url}
       >
@@ -56,7 +56,7 @@ const navLinks = [
 ];
 
 const Header = () => {
-  const matched = useReactSimpleMatchMedia("(max-width: 375px)");
+  // const matched = useReactSimpleMatchMedia("(max-width: 375px)");
   const [whiteActive, setWhiteActive] = useState(true);
 
   function sideToggle() {
@@ -77,11 +77,11 @@ const Header = () => {
       }
 
       if (window.scrollY > 0) {
-        if (matched) {
-          setWhiteActive(true);
-        } else {
+        // if (matched) {
+        //   setWhiteActive(true);
+        // } else {
           setWhiteActive(false);
-        }
+        // }
       } else {
         setWhiteActive(true);
       }
@@ -111,13 +111,13 @@ const Header = () => {
       <Container className=" h-100">
         <Row className="align-items-center justify-content-between h-100">
           <Col xs="2" className="header_logo p-0">
-            <Link href="/">
+            <a href="https://www.layouti.com/" target="_blank">
               {whiteActive ? (
                 <LayoutliLogoWhiteIcon />
               ) : (
                 <LayoutiLogoDarkIcon />
               )}
-            </Link>
+            </a>
           </Col>
           <Col xs={8} className="d-none d-lg-block ">
             <Row

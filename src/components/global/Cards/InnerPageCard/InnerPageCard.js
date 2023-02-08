@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./InnerPageCard.module.scss";
 
+
 import {
   DownloadIcon,
   HeartIcon,
@@ -13,15 +14,18 @@ import {
   LovelyIcon,
 } from "@/components/global/Svgs";
 
-const InnerPageCard = ({ innerPage }) => {
+const InnerPageCard = ({ innerPage, handleLike, handleView }) => {
+  
   return (
     <div className={styles["innerPageCard"]}>
       <header style={{ background: innerPage?.color }}>
-        {innerPage?.tag?.star&&<span className={styles["Suggestions"]}>
-          <LovelyIcon />
-        </span>}
+        {innerPage?.star && (
+          <span className={styles["Suggestions"]}>
+            <LovelyIcon />
+          </span>
+        )}
         {innerPage?.link && (
-          <a href={innerPage?.link} target="_blank" className={styles["link"]}>
+          <a onClick={() => handleView(innerPage?.id)} href={innerPage?.link}   target="_blank" className={styles["link"]}>
             <LinkIcon />
           </a>
         )}
@@ -32,6 +36,7 @@ const InnerPageCard = ({ innerPage }) => {
           style={{ objectFit: "contain", objectPosition: "center" }}
           blurDataURL={innerPage.image}
           placeholder="blur"
+          sizes="100vm"
         />
       </header>
       <main>
@@ -47,23 +52,27 @@ const InnerPageCard = ({ innerPage }) => {
           <p>{innerPage.description}</p>
         </div>
         <div className={styles["tag_container"]}>
-        {innerPage?.tag&&<p className={styles["tag"]}>#{innerPage?.tag?.title}</p>}
+          {innerPage?.tag && (
+            <p className={styles["tag"]}>#{innerPage?.tag?.title}</p>
+          )}
         </div>
       </main>
       <footer>
         <ul>
-          <li>
+          <li onClick={() => handleView(innerPage?.id)}>
             <EyeIcon />
             <p>{innerPage.viwers}</p>
           </li>
-          <li>
+          <li onClick={() => handleLike(innerPage?.id)}>
             {innerPage.ip ? <GreenHeartIcon /> : <HeartIcon />}
             <p>{innerPage.likes}</p>
           </li>
           {
-            <li className={innerPage.file ? styles["disabled"] : ""}>
-              <DownloadIcon />
-              <p className="d-none d-md-block">Download</p>
+            <li className={innerPage.file ? "" : styles["disabled"]}>
+              <a href={innerPage.file} target="_blank">
+                <DownloadIcon />
+                <p>Download</p>
+              </a>
             </li>
           }
         </ul>

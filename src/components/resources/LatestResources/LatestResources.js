@@ -14,7 +14,7 @@ const LatestResources = ({ resources }) => {
       <Container>
         <h3>Latest Resources for Designer</h3>
         <Masonry
-          breakpointCols={{ default: 4, 768: 2 }}
+          breakpointCols={{ default: 4, 768: 1 }}
           className="my-masonry-grid"
           columnClassName="my-masonry-grid_column"
         >

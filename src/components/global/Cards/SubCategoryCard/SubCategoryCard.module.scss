@@ -86,33 +86,47 @@
   }
 
   @media (max-width: 375px) {
-    height: 250px !important;
+    height: 355px !important;
     border-radius: 10px;
 
     .imageContainer {
-      height: 150px !important;
+      height: 180px !important;
       border-radius: 10px 10px 0 0;
     }
 
     .textContainer {
-      height: 100px;
+      height: 175px;
       padding: 14px;
       border-radius: 0 0 10px 10px;
 
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      h2 {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 24px;
+        margin-bottom: 10px;
+      }
+
       > p {
-        height: 49px;
+        height: 60px;
         margin-bottom: 10px;
         font-weight: 400;
-        font-size: 11.1625px;
-        line-height: 16px;
+        font-size: 14px;
+        line-height: 20px;
       }
 
       .viewsContainer {
+        display: flex;
+        align-items: center;
         p {
           margin-left: 8px;
+          margin-bottom: 0;
           font-weight: 400;
-          font-size: 8.37184px;
-          line-height: 11px;
+          font-size: 14.8235px;
+          line-height: 20px;
         }
       }
     }

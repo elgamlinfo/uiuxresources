@@ -110,9 +110,9 @@ const FooterContainer = () => {
           <Col lg={6} sm={12} className={styles["foot_head"]}>
             <Row className="align-items-center flex-nowrap m-0">
               <Col lg={2} xs={3} className="p-0 ">
-                <Link href="/">
+                <a href="https://www.layouti.com/" target="_blank">
                   <LayoutliLogoWhiteIcon />
-                </Link>
+                </a>
               </Col>
               <Col lg={10} xs={9} className="p-0">
                 <h2 className={`${styles["footer_brand"]} m-0 fs-3`}>

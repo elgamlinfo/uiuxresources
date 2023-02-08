@@ -227,11 +227,11 @@ const Sidebar = () => {
           <Col className="p-0">
             <Row className="align-items-center flex-nowrap gap-2 m-0">
               <Col lg={1} md={2} xs={4} className="">
-                <Link href="/">
+                <a href="https://www.layouti.com/" target="_blank">
                   <LayoutliLogoWhiteIcon
                     className={styles["sidebar-menu__logo"]}
                   />{" "}
-                </Link>
+                </a>
               </Col>
               <Col
                 lg={11}
